@@ -32,7 +32,7 @@ describe('uncaught exceptions', function() {
       }
       assert.strictEqual(res.stats.pending, 0);
       assert.strictEqual(res.stats.passes, 0);
-      assert.strictEqual(res.stats.failures, 2);
+      assert.strictEqual(res.stats.failures, 3);
 
       assert.strictEqual(
         res.failures[0].title,
@@ -40,9 +40,13 @@ describe('uncaught exceptions', function() {
       );
       assert.strictEqual(
         res.failures[1].title,
-        'fails exactly once when a global error is thrown second'
+        'fails twice when a global error is thrown second'
       );
-      assert.strictEqual(res.code, 2);
+      assert.strictEqual(
+        res.failures[2].title,
+        'fails twice when a global error is thrown second'
+      );
+      assert.strictEqual(res.code, 3);
       done();
     });
   });

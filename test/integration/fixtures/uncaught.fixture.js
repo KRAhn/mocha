@@ -11,7 +11,7 @@ it('fails exactly once when a global error is thrown first', function (done) {
   }, 0);
 });
 
-it('fails exactly once when a global error is thrown second', function (done) {
+it('fails twice when a global error is thrown second', function (done) {
   setTimeout(function () {
     done(new Error('test error'));
   }, 0);

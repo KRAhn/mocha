@@ -800,9 +800,9 @@ describe('Runner', function() {
               sandbox.stub(runnable, 'isFailed').returns(true);
             });
 
-            it('should not attempt to fail again', function() {
+            it('should attempt to fail again', function() {
               runner.uncaught(err);
-              expect(runner.fail, 'was not called');
+              expect(runner.fail, 'was called once');
             });
           });
 
@@ -811,9 +811,9 @@ describe('Runner', function() {
               sandbox.stub(runnable, 'isPending').returns(true);
             });
 
-            it('should not attempt to fail', function() {
+            it('should attempt to fail', function() {
               runner.uncaught(err);
-              expect(runner.fail, 'was not called');
+              expect(runner.fail, 'was called once');
             });
           });
 
